@@ -9,6 +9,7 @@ console.log(__dirname)
 console.log(path.join(__dirname, '../public'))              //.. is used to go up one folder
 
 const app = express()
+const port = process.env.PORT || 3000           //process.env.PORT will exist in Heroku and 3000 for local
 
 //define paths for express config
 const publicDirectoryPath = path.join(__dirname, '../public')
@@ -121,6 +122,6 @@ app.get('*', (req, res)=>{
     })
 })
 
-app.listen(3000, ()=>{        //3000 is the port no, second one is the optional argument, function to run when the server starts
-    console.log('Server is up on port 3000')
+app.listen(port, ()=>{        //3000 is the port no, second one is the optional argument, function to run when the server starts
+    console.log('Server is up on port ' + port)
 })  
